@@ -58,12 +58,11 @@ public class FruitBasket {
 				}
 				break;
 			case 3:
-				if(count<basketSize) {
-				fruit = new Apple("Apple");
-				fruit.acceptData();
-				basket[count++] = fruit;
-				}
-				else {
+				if (count < basketSize) {
+					fruit = new Apple("Apple");
+					fruit.acceptData();
+					basket[count++] = fruit;
+				} else {
 					System.out.println("Basket is Full You can not add More.");
 				}
 				break;
@@ -88,7 +87,7 @@ public class FruitBasket {
 			case 6:
 				idx = 0;
 				for (Fruit temp : basket) {
-					if (!temp.getFresh()) {
+					if (temp != null && !temp.getFresh()) {
 						System.out.println("FRUIT " + idx + " : " + temp.toString());
 					}
 					idx++;
@@ -106,10 +105,14 @@ public class FruitBasket {
 				break;
 			case 8:
 				for (Fruit temp : basket) {
-					if (temp.taste().contains("Sour")) {
+					if (temp != null && temp.taste().contains("Sour")) {
 						temp.setFresh(false);
 					}
 				}
+				break;
+			default:
+				System.out.println("Wrong Choice Entered.");
+				break;
 
 			}
 		}
