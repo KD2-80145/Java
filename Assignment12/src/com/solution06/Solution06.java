@@ -22,7 +22,7 @@ public class Solution06 {
 		int ans=Stream
 				.iterate(1, (x)->x+1)
 				.limit(num)
-				.reduce(1,(x,y)->x*y);
+				.reduce(1,(last_accum_value,new_value)->last_accum_value*new_value);
 		
 		System.out.println(ans);
 
