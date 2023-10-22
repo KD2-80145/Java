@@ -18,8 +18,10 @@ public class CandidateDao implements AutoCloseable {
 	@Override
 	public void close() {
 		try {
+			if(con!=null) {
 			con.close();
-		} catch (SQLException e) {
+			}
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
